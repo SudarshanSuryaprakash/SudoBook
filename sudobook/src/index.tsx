@@ -46,7 +46,11 @@ const App = () => {
         <div id="root"></div>
         <script>
           window.addEventListener('message', (event) => {
-            eval(event.data)
+            try {
+              eval(event.data);
+              } catch (err) {
+                root.innerHTML = '<div>' + err + '</div>'
+                }
           }, false);
         </script>
       </body>
